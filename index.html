@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>fullPage.js — 循环演示</title>
+		<link rel="stylesheet" href="css/jquery.fullPage.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-ui-1.10.3.min.js"></script>
+		<script src="js/jquery.fullPage.min.js"></script>
+		<script>
+			$(document).ready(function () {
+		        var eTop = $(".one").offset().top;
+		        var wTop = $(window).height();
+		        window.onresize = function () {
+		            var wTop = $(window).height();
+		        };
+
+		        $.fn.fullpage({
+		            /*slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],*/
+		            anchors: ['page1', 'page2', 'page3', 'page4'],
+		            loopBottom: true,
+		            afterLoad:function(){
+		                var dTop = $(document).scrollTop();
+		                if (dTop + wTop > eTop) {
+		                    $(".one").find("div").eq(0).addClass("one4fla");
+		                    $(".one").find("div").eq(1).addClass("one5fla");
+		                    $(".two").find("div").eq(0).addClass("two4fla");
+		                    $(".two").find("div").eq(1).addClass("two5fla");
+		                    $(".three").find("div").eq(0).addClass("three5fla");
+		                    $(".three").find("div").eq(1).addClass("three6fla");
+		                }
+		                setTimeout(function(){
+		                    $(".one").find("div").eq(0).removeClass("one4fla");
+		                    $(".one").find("div").eq(1).removeClass("one5fla");
+							$(".two").find("div").eq(0).removeClass("two4fla");
+							$(".two").find("div").eq(1).removeClass("two5fla");
+		                    $(".three").find("div").eq(0).removeClass("three5fla");
+		                    $(".three").find("div").eq(1).removeClass("three6fla");
+						},2000)
+		            }
+		        });
+		    });
+		</script>
+	</head>
+
+	<body>
+		<div class="section">
+			<div class="one">
+				<img src="img/2.png" class="one1" />
+				<img src="img/3.png" class="one2" />
+				<img src="img/4.png" class="one3" />
+				<div class="one4">蔬菜生鲜</div>
+				<div class="one5">餐饮配送，领“鲜”一步。</div>
+				<img src="img/5.png" class="one6" />
+			</div>
+		</div>
+		<div class="section">
+			<div class="two">
+				<img src="img/7.png" class="two1" />
+				<img src="img/8.png" class="two2" />
+				<img src="img/9.png" class="two3" />
+				<div class="two4">GOOD MORNING</div>
+				<div class="two5">保持好心情，天气也能多云转晴</div>
+				<img src="img/5.png" class="one6" />
+			</div>
+		</div>
+		<div class="section">
+			<div class="three">
+				<img src="img/11.png" class="three1" />
+				<img src="img/12.png" class="three2" />
+				<img src="img/13.png" class="three3" />
+				<img src="img/14.png" class="three4" />
+				<div class="three5">梅花已谢杏花新</div>
+				<div class="three6">暖气潜催次第春</div>
+				<img src="img/5.png" class="one6" />
+			</div>
+		</div>
+	</body>
+
+</html>
